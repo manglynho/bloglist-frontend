@@ -1,15 +1,16 @@
-import React, {useState} from 'react'
-import reactDom from 'react-dom'
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+//import reactDom from 'react-dom'
 
 const Blog = ({ blog, plusLike, byeBlog }) => {
   const [advPanelVisible, setAdvPanelVisible] = useState(false)
-  
+
   const blogStyle = {
     paddingTop: 10,
     paddingLeft: 2,
     border: 'solid',
     borderWidth: 1,
-    marginBottom: 5 
+    marginBottom: 5
   }
 
   const removeBtnStyle ={
@@ -21,14 +22,14 @@ const Blog = ({ blog, plusLike, byeBlog }) => {
 
   const hideWhenVisible = { display: advPanelVisible ? 'none' : '' }
   const showWhenVisible = { display: advPanelVisible ? '' : 'none' }
-    
+
 
   const advancedBlogPanelButtons = () => {
     return (
       <span>
         <span style={hideWhenVisible}>
-          <button onClick={() => setAdvPanelVisible(true)}>View</button> 
-         </span>
+          <button onClick={() => setAdvPanelVisible(true)}>View</button>
+        </span>
         <span style={showWhenVisible}>
           <button onClick={() => setAdvPanelVisible(false)}>Hide</button>
         </span>
@@ -38,13 +39,13 @@ const Blog = ({ blog, plusLike, byeBlog }) => {
 
   const advancedBlogPanel = () => {
     return (
-      <div> 
+      <div>
         <div style={showWhenVisible}>
           <div>
             {blog.url}
           </div>
           <div>
-            Likes: {blog.likes} 
+            Likes: {blog.likes}
             <button onClick={plusLike}>Like</button>
           </div>
           <div>
@@ -62,8 +63,13 @@ const Blog = ({ blog, plusLike, byeBlog }) => {
         {blog.title} {blog.author} {advancedBlogPanelButtons()}
         {advancedBlogPanel()}
       </div>
-      
-  </div>
-)}
+    </div>
+  )}
+
+Blog.propTypes = {
+  plusLike: PropTypes.func.isRequired,
+  byeBlog: PropTypes.func.isRequired,
+  blog: PropTypes.object.isRequired
+}
 
 export default Blog
