@@ -40,13 +40,13 @@ const Blog = ({ blog, plusLike, byeBlog }) => {
   const advancedBlogPanel = () => {
     return (
       <div>
-        <div style={showWhenVisible}>
+        <div style={showWhenVisible} className='moreDataPanel'>
           <div>
             {blog.url}
           </div>
           <div>
             Likes: {blog.likes}
-            <button onClick={plusLike}>Like</button>
+            <button className='likeBtn' onClick={plusLike}>Like</button>
           </div>
           <div>
             {blog.user.name}
