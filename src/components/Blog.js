@@ -45,20 +45,20 @@ const Blog = ({ blog, plusLike, byeBlog }) => {
             {blog.url}
           </div>
           <div>
-            Likes: {blog.likes}
+            Likes:<span className='likesValue'>{blog.likes}</span>
             <button className='likeBtn' onClick={plusLike}>Like</button>
           </div>
           <div>
             {blog.user.name}
           </div>
-          <button style={removeBtnStyle} onClick={byeBlog}>Remove</button>
+          <button className='removeBtn' style={removeBtnStyle} onClick={byeBlog}>Remove</button>
         </div>
       </div>
     )
   }
 
   return (
-    <div style={blogStyle}>
+    <div className='blog_element' style={blogStyle}>
       <div>
         {blog.title} {blog.author} {advancedBlogPanelButtons()}
         {advancedBlogPanel()}

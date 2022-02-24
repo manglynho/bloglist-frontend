@@ -118,15 +118,17 @@ const App = () => {
         </div> :
         <div>
           <p>{user.name} logged in
-            <button onClick={() => logout()}>
+            <button id="logout-btn" onClick={() => logout()}>
             Logout
             </button></p>
           <h3>Add a new</h3>
           {blogForm(addBlog)}
           <hr/>
-          {blogs.map(blog =>
-            <Blog key={blog.id} blog={blog} plusLike={ () => doLike(blog.id)} byeBlog={() => removeBlog(blog) }  />
-          )}
+          <div id='blogs-container'>
+            {blogs.map(blog =>
+              <Blog key={blog.id} blog={blog} plusLike={ () => doLike(blog.id)} byeBlog={() => removeBlog(blog) }  />
+            )}
+          </div>
         </div>
       }
     </div>

@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 const BlogForm = ({ createBlog }) => {
-  const [newBlogTittle, setNewBlogTittle] = useState('blog tittle...')
-  const [newBlogAuthor, setNewBlogAuthor] = useState('blog author...')
-  const [newBlogUrl , setNewBlogUrl] = useState('blog url...')
+  const [newBlogTittle, setNewBlogTittle] = useState('')
+  const [newBlogAuthor, setNewBlogAuthor] = useState('')
+  const [newBlogUrl , setNewBlogUrl] = useState('')
 
   const handleBlogTittleChange = (event) => {
     setNewBlogTittle(event.target.value)
@@ -39,19 +39,20 @@ const BlogForm = ({ createBlog }) => {
       <div>
           Url:<input id='url' value={newBlogUrl} onChange={handleBlogUrlChange} />
       </div>
-      <button type="submit">save</button>
+      <button id='add-blog-button' type="submit">save</button>
     </form>
   )
 }
 
 BlogForm.propTypes = {
-  addBlog: PropTypes.func.isRequired,
+  createBlog:PropTypes.func.isRequired
+  /*addBlog: PropTypes.func.isRequired,
   handleBlogTittleChange: PropTypes.func.isRequired,
   handleBlogAuthorChange: PropTypes.func.isRequired,
   handleBlogUrlChange:PropTypes.func.isRequired,
   newBlogTittle: PropTypes.string.isRequired,
   newBlogAuthor: PropTypes.string.isRequired,
-  newBlogUrl: PropTypes.string.isRequired
+  newBlogUrl: PropTypes.string.isRequired*/
 }
 
 export default BlogForm
